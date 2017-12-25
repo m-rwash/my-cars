@@ -16,7 +16,7 @@ class NewCar extends Component {
     }
     else{
       var car = {name: name, price: price, horsepower: horsepower, car_type: type}
-      axios.post('http://localhost:3001/api/v1/cars/',{car: car})
+      axios.post('https://aqueous-caverns-93359.herokuapp.com/api/v1/cars/',{car: car})
          .then(response =>{
           console.log('Successfully Submitted!', response);
           this.props.handleSubmit(car);
