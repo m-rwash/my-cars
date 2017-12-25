@@ -52,10 +52,11 @@ class App extends Component {
     return (
       <div className="App">
         <NewCar handleSubmit={this.handleSubmit.bind(this)}/>          
-        <well>
-          <input class="form-control mr-sm-2" type="text" placeholder="Search"
+        <div className="well well-md">
+          <input className="form-control mr-sm-2" type="text" placeholder="Search Car's Name"
                  onChange={this.searchHandle.bind(this)} value={this.state.term}/>
-        </well>
+        </div>
+        <br />
         <table className="table table-hover">
           <thead>
             <tr className="table-primary">

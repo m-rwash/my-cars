@@ -43,8 +43,8 @@ class Car extends Component {
 			<td>{price}</td>
 			<td>{horsepower}</td>
 			<td>{type}</td>
-			<td><button onClick={this.props.handleDelete}>Delete</button></td>
-			<td><button onClick={this.handleEdit.bind(this)}>{this.state.editable ? 'Submit' : 'Edit'}</button></td>
+			<td><button className='btn btn-danger' onClick={this.props.handleDelete}>Delete</button></td>
+			<td><button className='btn btn-secondary' onClick={this.handleEdit.bind(this)}>{this.state.editable ? 'Submit' : 'Edit'}</button></td>
 		</tr>
 	)};
 
