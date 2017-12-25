@@ -15,7 +15,14 @@ class NewCar extends Component {
           this.props.handleSubmit(car);
          });
   }
+  static defaultProps = {
+    types: [' ','Sport','MPV','Luxury', 'Hatchback', 'SUV']
+  }
+
   render() {
+    let typeOptions = this.props.types.map(type =>{
+      return <option key={type} value={type}>{type}</option>
+    });
     return (
       <div className='jumbotron'>
       <form >
@@ -41,7 +48,7 @@ class NewCar extends Component {
               <input className='form-control' name='horsepower' ref='horsepower' placeholder="Enter Car's Horsepower" />
             </div>
           </div>
-          
+          {/*
           <div className="form-group row">
             <label className='col-sm-2 col-form-label' htmlFor="type">Type:</label>
             <div className="col-sm-10">
@@ -49,7 +56,18 @@ class NewCar extends Component {
             </div>
           </div>
           
-          
+          */}
+          <div className="form-group row">
+            <label className='col-sm-2 control-label' htmlFor="select">Type:</label>
+            <div className="col-sm-10">
+              <select className='form-control' id='select' name='type' ref='type' 
+                      placeholder="Enter Car's Type">
+              {typeOptions}
+              </select>
+            </div>
+          </div>
+
+
           <button className="btn btn-primary" onClick={this.handleClick.bind(this)}>Submit</button>
         </fieldset>
       </form>
