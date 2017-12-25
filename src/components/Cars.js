@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import Car from './Car.js' 
+import Car from './Car.js'
+
+function searchingFor(term){
+  return function(x){
+    return x.name.toLowerCase().includes(term.toLowerCase()) || !term;
+  }
+}
 class Cars extends Component {
   handleDelete(id){
     this.props.handleDelete(id);
@@ -10,13 +16,15 @@ class Cars extends Component {
   }
 
   render() {
-  	var cars = this.props.cars.map((car) => {
+    var term = this.props.term
+  	var cars = this.props.cars.filter(searchingFor(term)).map((car) => {
   		return(
   			// <div className="tr" key={car.id}>
-          <Car car={car} key={car.id}
-               handleDelete={this.handleDelete.bind(this, car.id)}
-               handleUpdate  ={this.onUpdate.bind(this)}/>
+        <Car car={car} key={car.id}
+              handleDelete={this.handleDelete.bind(this, car.id)}
+              handleUpdate  ={this.onUpdate.bind(this)}/>
         // </div>
+
   		)
   	});
 

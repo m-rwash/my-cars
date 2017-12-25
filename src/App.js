@@ -8,7 +8,8 @@ class App extends Component {
   constructor(){
     super();
     this.state={
-      cars: []
+      cars: [],
+      term:''
     };
   }
   componentDidMount(){
@@ -43,15 +44,22 @@ class App extends Component {
     this.setState({cars: cars})
   }
 
+  searchHandle(e){
+    this.setState({term: e.target.value})
+  }
+
   render() {
     return (
       <div className="App">
-        {console.log("HERE")}
         <NewCar handleSubmit={this.handleSubmit.bind(this)}/>          
+        <well>
+          <input class="form-control mr-sm-2" type="text" placeholder="Search"
+                 onChange={this.searchHandle.bind(this)} value={this.state.term}/>
+        </well>
         <table className="table table-hover">
           <thead>
-            <tr>
-              <th>Name</th>
+            <tr className="table-primary">
+              <th scope="col">Name</th>
               <th>Price</th>
               <th>Horsepower</th>
               <th>Type</th>
@@ -60,9 +68,10 @@ class App extends Component {
             </tr>
           </thead>
           <Cars cars={this.state.cars} handleDelete={this.handleDelete.bind(this)}
-                onUpdate={this.handleUpdate.bind(this)}/>
+                onUpdate={this.handleUpdate.bind(this)} term={this.state.term}/>
         </table>
       </div>
+
     );
   }
 }

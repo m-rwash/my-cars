@@ -48,15 +48,7 @@ class NewCar extends Component {
               <input className='form-control' name='horsepower' ref='horsepower' placeholder="Enter Car's Horsepower" />
             </div>
           </div>
-          {/*
-          <div className="form-group row">
-            <label className='col-sm-2 col-form-label' htmlFor="type">Type:</label>
-            <div className="col-sm-10">
-              <input className='form-control' name='type' ref='type' placeholder="Enter Car's Type" />
-            </div>
-          </div>
-          
-          */}
+  
           <div className="form-group row">
             <label className='col-sm-2 control-label' htmlFor="select">Type:</label>
             <div className="col-sm-10">
