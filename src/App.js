@@ -28,7 +28,7 @@ class App extends Component {
     axios.delete(`http://localhost:3001/api/v1/cars/${id}`)
          .then(response => {console.log("Successfully Deleted",response)})
     var newCars = this.state.cars.filter((car)=>{
-      return car.id != id
+      return car.id !== id
     })
     this.setState({cars: newCars})
   }
@@ -37,7 +37,7 @@ class App extends Component {
     axios.put(`http://localhost:3001/api/v1/cars/${car.id}`,{car: car})
          .then(response => {console.log("Successfully Updated", response)})
     var cars = this.state.cars.filter((i)=>{
-      return i.id != car.id
+      return i.id !== car.id
     })
     cars.push(car)
     this.setState({cars: cars})
@@ -48,10 +48,20 @@ class App extends Component {
       <div className="App">
         {console.log("HERE")}
         <NewCar handleSubmit={this.handleSubmit.bind(this)}/>          
-        <div className="table">
+        <table className="table table-hover">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Horsepower</th>
+              <th>Type</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
           <Cars cars={this.state.cars} handleDelete={this.handleDelete.bind(this)}
                 onUpdate={this.handleUpdate.bind(this)}/>
-        </div>
+        </table>
       </div>
     );
   }

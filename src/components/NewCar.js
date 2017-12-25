@@ -17,12 +17,42 @@ class NewCar extends Component {
   }
   render() {
     return (
-      <div>
-        <input ref='name' placeholder="Enter Car's Name" />
-        <input ref='price' placeholder="Enter Car's Price" />
-        <input ref='horsepower' placeholder="Enter Car's Horsepower" />
-        <input ref='type' placeholder="Enter Car's Type" />
-        <button onClick={this.handleClick.bind(this)}>Submit</button>
+      <div className='jumbotron'>
+      <form >
+        <fieldset>
+          <legend>Add New Car</legend>
+          <div className="form-group row">
+            <label className='col-md-2 col-form-label' htmlFor="name">Name</label>
+            <div className="col-md-10">
+              <input className='form-control' name='name' ref='name' placeholder="Enter Car's Name" />
+            </div>
+          </div>
+
+          <div className="form-group row">
+            <label className='col-sm-2 col-form-label' htmlFor="price">Price</label>
+            <div className="col-sm-10">
+              <input className='form-control' name='price' ref='price' placeholder="Enter Car's Price" />
+            </div>
+          </div>
+
+          <div className="form-group row">
+            <label className='col-sm-2 col-form-label' htmlFor="horsepower">Horsepower</label>
+            <div className="col-sm-10">
+              <input className='form-control' name='horsepower' ref='horsepower' placeholder="Enter Car's Horsepower" />
+            </div>
+          </div>
+          
+          <div className="form-group row">
+            <label className='col-sm-2 col-form-label' htmlFor="type">Type:</label>
+            <div className="col-sm-10">
+              <input className='form-control' name='type' ref='type' placeholder="Enter Car's Type" />
+            </div>
+          </div>
+          
+          
+          <button className="btn btn-primary" onClick={this.handleClick.bind(this)}>Submit</button>
+        </fieldset>
+      </form>
       </div>
     );
   }

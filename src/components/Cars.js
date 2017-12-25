@@ -12,18 +12,18 @@ class Cars extends Component {
   render() {
   	var cars = this.props.cars.map((car) => {
   		return(
-  			<div className="tr" key={car.id}>
-          <Car car={car}
+  			// <div className="tr" key={car.id}>
+          <Car car={car} key={car.id}
                handleDelete={this.handleDelete.bind(this, car.id)}
                handleUpdate  ={this.onUpdate.bind(this)}/>
-        </div>
+        // </div>
   		)
   	});
 
     return (
-      <div>
+      <tbody>
         {cars}
-      </div>
+      </tbody>
     );
   }
 }
