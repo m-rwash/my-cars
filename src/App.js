@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   componentDidMount(){
-    axios.get('https://aqueous-caverns-93359.herokuapp.com/api/v1/cars.json')
+    axios.get('http://localhost:3001/api/v1/cars.json')
        .then(response => {
         console.log(response.data)
         this.setState({cars: response.data})
@@ -28,7 +28,7 @@ class App extends Component {
   }
 
   handleDelete(id){
-    axios.delete(`https://aqueous-caverns-93359.herokuapp.com/api/v1/cars/${id}`)
+    axios.delete(`http://localhost:3001/api/v1/cars/${id}`)
          .then(response => {console.log("Successfully Deleted",response)})
     var newCars = this.state.cars.filter((car)=>{
       return car.id !== id
@@ -37,7 +37,7 @@ class App extends Component {
   }
 
   handleUpdate(car){
-    axios.put(`https://aqueous-caverns-93359.herokuapp.com/api/v1/cars/${car.id}`,{car: car})
+    axios.put(`http://localhost:3001/api/v1/cars/${car.id}`,{car: car})
          .then(response => {console.log("Successfully Updated", response)})
     var cars = this.state.cars.filter((i)=>{
       return i.id !== car.id
