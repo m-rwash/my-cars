@@ -1,0 +1,3 @@
+div.table {border: 1px solid black; display: table; }
+div.tr {border: 1px solid black; display: table-row; }
+div.td {border: 1px solid black; display: table-cell; }
