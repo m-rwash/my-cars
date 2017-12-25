@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Cars from './components/Cars.js'
 import NewCar from './components/NewCar.js'
-import './App.css';
 import axios from 'axios'
+import './App.css';
 
 class App extends Component {
   constructor(){
@@ -12,6 +12,7 @@ class App extends Component {
       term:''
     };
   }
+
   componentDidMount(){
     axios.get('http://localhost:3001/api/v1/cars.json')
        .then(response => {
@@ -20,11 +21,12 @@ class App extends Component {
        })
        .catch(error => console.log(error))
   }
+
   handleSubmit(car){
-    console.log("STATEEEEE",this.state.cars)
     var newState = this.state.cars.concat(car);
     this.setState({cars: newState})
   }
+
   handleDelete(id){
     axios.delete(`http://localhost:3001/api/v1/cars/${id}`)
          .then(response => {console.log("Successfully Deleted",response)})
@@ -50,17 +52,17 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className='App'>
         <NewCar handleSubmit={this.handleSubmit.bind(this)}/>          
-        <div className="well well-md">
-          <input className="form-control mr-sm-2" type="text" placeholder="Search Car's Name"
+        <div className='well well-md'>
+          <input className='form-control mr-sm-2' type='text' placeholder="Search Car's Name"
                  onChange={this.searchHandle.bind(this)} value={this.state.term}/>
         </div>
         <br />
-        <table className="table table-hover">
+        <table className='table table-hover'>
           <thead>
-            <tr className="table-primary">
-              <th scope="col">Name</th>
+            <tr className='table-primary'>
+              <th scope='col'>Name</th>
               <th>Price</th>
               <th>Horsepower</th>
               <th>Type</th>
@@ -72,7 +74,6 @@ class App extends Component {
                 onUpdate={this.handleUpdate.bind(this)} term={this.state.term}/>
         </table>
       </div>
-
     );
   }
 }
